@@ -34,15 +34,13 @@ function Comment({ post, setPost, realPost, taek }) {
                 (comment) => comment.id === el.id
             );
             comment.change = false;
-            comment.content = realContent;
+            comment.content = realContenct;
             setPost(newPost);
 
             //이거 content 변경 전
         } else {
             const newPost = { ...realPost };
-            const comment = newPost.Comments.find(
-                (comment) => comment.id === el.id
-            );
+            const comment = newPost.find((comment) => comment.id === el.id);
             comment.change = true;
             setPost(newPost);
         }

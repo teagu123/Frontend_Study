@@ -7,12 +7,10 @@ import Modal from "./pages/Modal/Modal";
 import Index from "./pages/PostList/components/Post/index";
 import { MockPost } from "./__mocks__/post";
 
-/*
-    
-*/
 function App() {
     const Posts = MockPost(10);
     const [posts, setPosts] = useState(Posts);
+
     /*MockPost 함수의 매개변수 count로 전달한 수 만큼 데이터가 생성됩니다*/
 
     const { modalview } = useContext(modalContext);
@@ -23,7 +21,7 @@ function App() {
             <Header />
             {posts.map((el) => (
                 <>
-                    <Index postlist={el} />
+                    <Index postlist={el} posts={posts} setPosts={setPosts} />
                 </>
             ))}
         </>

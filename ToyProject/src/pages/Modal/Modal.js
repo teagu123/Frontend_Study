@@ -16,6 +16,10 @@ function Modal({ posts, setPosts }) {
         4. 객체를 변경하기 위해서 post라는 놈을 state로 관리한다?
         그래야지 unshift를 하던 push를 하던 원본을 교체하려면 이 방법만 있는 건가?
         3. 이거 맨앞에 추가해야함 //
+
+        문제점)
+        input type file이 어떤 건지 경로를 알아야 이미지를 가져 올수있다
+        하지만 보안상의 문제로 C:\fakepath 이런식으로 온다 이걸 어떤식으로 고칠수 있을까?
     */
     const addlist = (e) => {
         e.preventDefault();
@@ -32,11 +36,15 @@ function Modal({ posts, setPosts }) {
             },
             Comments: [
                 {
-                    User: { id: "", nick_name: "", profile_img: "" },
+                    User: {
+                        id: "",
+                        nick_name: "",
+                        profile_img: "",
+                    },
                     content: "",
                     createdAt: "",
-                    id: "",
-                    myComment: "",
+                    id: Math.floor(Math.random() * 10000000),
+                    myComment: "Y",
                 },
             ],
             createAt: "",

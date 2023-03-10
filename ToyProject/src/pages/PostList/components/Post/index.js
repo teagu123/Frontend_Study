@@ -3,7 +3,7 @@ import Comments from "./UnderBox/Comments/Comments";
 import Pictures from "./Picture/Pictures";
 import styled from "styled-components";
 
-function Index({ postlist }) {
+function Index({ postlist, posts, setPosts }) {
     // console.log(postlist);
     return (
         <>
@@ -11,7 +11,11 @@ function Index({ postlist }) {
                 <Pictures postImg={postlist.Post_img} />
                 <UnderBox>
                     <P.Contents postlist={postlist} />
-                    <P.Comments comments={postlist.Comments} />
+                    <P.Comments
+                        comments={postlist.Comments}
+                        posts={posts}
+                        setPosts={setPosts}
+                    />
                 </UnderBox>
             </MainBox>
         </>

@@ -8,7 +8,7 @@ function Comment({ post, setPost, realPost, taek }) {
     const oncontent = (e) => {
         setRealContent(e.target.value);
     };
-
+    //음...
     const deleteBtn = (el) => {
         window.confirm("정말 삭제 하시겠습니까?");
         {

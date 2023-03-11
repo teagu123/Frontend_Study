@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import * as P from "../style";
 import 짱아 from "../../../../../../__mocks__/my_profile_imgs/짱아.png";
+import Slide from "../../../../../../components/Slide";
 
 //postlist.Comments까지 props로 보냄
 function Comments({ comments, posts, setPosts }) {
@@ -20,13 +21,17 @@ function Comments({ comments, posts, setPosts }) {
     const onClickChange = (el) => {
         setview((prev) => !prev);
         if (el.myComment === "N") return alert("자신 댓글만 수정 가능합니다.");
-        if (el.myComment === "Y") {
-            el.content = contents;
-            el.User.nick_name = name;
-            el.User.id = nickname;
-            if (view === true) {
-                el.User.profile_img = 짱아;
-            }
+
+        /*
+            원래 같으면 여기를 깊은 복사해서 새로운 객체 만들어서
+            그 객체를 변경한 후 그걸 useState로 변경한것을 했다. 하지만 이 로직은 위에 랜더링이 있기떄문에
+            이걸 무조건적으로 위에 껄로 바꿔야할까요?
+            */
+        el.content = contents;
+        el.User.nick_name = name;
+        el.User.id = nickname;
+        if (view === true) {
+            el.User.profile_img = 짱아;
         }
     };
 
@@ -41,6 +46,7 @@ function Comments({ comments, posts, setPosts }) {
         el.User.profile_img = "";
         console.log(el);
     };
+
     return (
         <>
             {comments.map((el) => (
@@ -48,6 +54,7 @@ function Comments({ comments, posts, setPosts }) {
                     {/* 댓글 프로필 이미지 및 닉네임 */}
                     <P.CommentProfile>
                         <Img src={el.User.profile_img} />
+
                         {el.myComment === "Y" && view === true ? (
                             <input onChange={onChangeInputs} name="name" />
                         ) : (

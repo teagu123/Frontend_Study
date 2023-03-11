@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-function Pictures({ postImg }) {
+function Pictures({ el }) {
     // console.log(postImg);
     return (
         <>
-            <Images src={postImg[0]}></Images>
+            <Images src={el} />
         </>
     );
 }

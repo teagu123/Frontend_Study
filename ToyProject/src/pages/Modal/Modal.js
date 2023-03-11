@@ -21,6 +21,9 @@ function Modal({ posts, setPosts }) {
         input type file이 어떤 건지 경로를 알아야 이미지를 가져 올수있다
         하지만 보안상의 문제로 C:\fakepath 이런식으로 온다 이걸 어떤식으로 고칠수 있을까?
     */
+    const aa = (e) => {
+        console.log(e.target.value);
+    };
     const addlist = (e) => {
         e.preventDefault();
         console.log(e.target.file.value);
@@ -99,7 +102,7 @@ function Modal({ posts, setPosts }) {
                 <input type="file" />
             </FileBox> */}
 
-            <File type="file" name="file" />
+            <File type="file" name="file" onClick={aa} />
 
             <Button>
                 <button>작성</button>

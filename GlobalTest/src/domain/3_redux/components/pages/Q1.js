@@ -27,6 +27,7 @@ const ReduxQ1Page = () => {
             관련 비즈니스 로직은
             src/store/4_redux.js에 구현해주세요.
   */
+  //일단 redux 문제 파악해서 바로 해보는 느낌으로 해야할거같다.
 
   const [Posts, setPosts] = useState(MockPosts(10));
   const onSubmit = (e) => {

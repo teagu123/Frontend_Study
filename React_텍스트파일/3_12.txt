@@ -51,7 +51,7 @@ token
         또한 리프레쉬 있으면 어세스토큰을 재발급 받는 로직 작성
         둘다 만료되면 로그아웃하는 로직 구현해야함
         
-    토큰 관리 방법)
+    토큰 관리 방법
         1. 웹스토리지
         2. 쿠키
         3. state
@@ -65,11 +65,11 @@ token
 
     4. 백엔드가 프론트에게 토큰 전달하는 방법
         1. req.body
-            ex) const res = await ...
+            ex/ const res = await ...
             res.data
 
         2. req.header
-            ex) const res = await ...
+            ex/ const res = await ...
             res.config.header
 
         3. coookies

@@ -1,16 +1,15 @@
 import { createContext, useState } from "react";
 
-export const viewstate = createContext();
+export const view = createContext();
 
-function context({ children }) {
+function Context({ children }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-
     return (
         <>
-            <viewstate.Provider value={[isModalOpen, setIsModalOpen]}>
+            <view.Provider value={{ isModalOpen, setIsModalOpen }}>
                 {children}
-            </viewstate.Provider>
+            </view.Provider>
         </>
     );
 }
-export default context;
+export default Context;

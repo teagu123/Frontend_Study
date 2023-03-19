@@ -17,7 +17,6 @@ const ReducerQ1Page = () => {
       3) 위 로직을 현재 컴포넌트가 아닌 비즈니스 로직을 분리하여
           src/store/1_reducer.js에 구현해보세요
     */
-
     const [ingredients, dispatch] = useReducer(reducer, [
         { id: 1, name: "피자 도우", price: 1000 },
         { id: 2, name: "토마토 소스", price: 500 },
@@ -30,11 +29,10 @@ const ReducerQ1Page = () => {
         e.preventDefault();
         const name = e.target.name.value;
         const price = e.target.price.value;
-
         dispatch({
             type: "ADD",
             payload: {
-                id: ingredients.length + 1,
+                id: Math.floor(Math.random() * 10000000000),
                 name,
                 price,
             },

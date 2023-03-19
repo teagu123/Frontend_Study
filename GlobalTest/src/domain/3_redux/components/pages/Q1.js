@@ -27,7 +27,27 @@ const ReduxQ1Page = () => {
             관련 비즈니스 로직은
             src/store/4_redux.js에 구현해주세요.
   */
-  //일단 redux 문제 파악해서 바로 해보는 느낌으로 해야할거같다.
+
+  /*
+  state
+  reducer
+        리덕스 메모
+        1. import {createStore} from  'redux';
+        4. import {Provider, useSelector, useDispatch} from 'react-redux';
+//Provider는 감싸는거 쓸거 
+ex) <Provider store={store}> 감싸질 components </Provider>
+이렇게 감싸지면 이제 저 store를 사용할수 있는거다.
+        2. const store = createStore(reducer); //store는 상수로 생성한다. store를 생성할때 해야하는거 reducer 즉 store안에 state를 어떤식으로 변경할 것인가
+        3. function reducer(currentState, action){
+//reducer는 두개 파라미터 있다. 첫번째 지금 state, 두번째 action값
+//불변성을 지키기 위해 깊은 복사
+//변화시킨것을 return하면 그걸로 state변경
+            const newState = {...currentState}
+            case 'plus':
+            return newState++;
+        }
+
+    */
 
   const [Posts, setPosts] = useState(MockPosts(10));
   const onSubmit = (e) => {

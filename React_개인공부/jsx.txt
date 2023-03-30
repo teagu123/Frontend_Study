@@ -1,0 +1,14 @@
+JXS문법
+
+주의사항
+    1. 다수의 tag를 반환 하려면 <></> 혹은 <div></div>등으로 부모태그로 감싸야한다
+    2. js는 class이지만 jsx는 classname='orange' 이런식으로 사용해야한다.
+    3. return 안에서 js문법을 사용하고 싶으면 {}를 사용해야한다. 
+   
+    기존 html을 작성하면 jsx문법으로 출력하는 사이트
+    * https://transform.tools/html-to-jsx
+
+useState
+    리액트에서 값은 변경했는데 ui가 업데이트 하지않는것은
+    즉 state로 관리를해야한다. 이를 쓸수있는것은 useState Hook함수가 있다.
+    /'

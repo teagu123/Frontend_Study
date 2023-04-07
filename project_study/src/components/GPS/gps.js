@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import DaumPostcode from 'react-daum-postcode'
 
-function GPS() {
+function SearchGPS() {
 	/*
         npm install react-daum-postcode 설치
 
@@ -45,4 +45,4 @@ function GPS() {
 		</>
 	)
 }
-export default GPS
+export default SearchGPS

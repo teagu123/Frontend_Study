@@ -10,7 +10,8 @@ function HashTag() {
 		setInput(e.target.value)
 	}
 
-	const hashRemove = select => {
+	const hashRemove = e => {
+		setHashArr(hashArr.filter(el => el !== e))
 		console.log(hashArr)
 	}
 
@@ -31,7 +32,7 @@ function HashTag() {
 			/>
 			<Ul>
 				{hashArr.map(hash => (
-					<Li onClick={hashRemove}>#{hash}</Li>
+					<Li onClick={() => hashRemove(hash)}>#{hash} 🅧</Li>
 				))}
 			</Ul>
 		</>

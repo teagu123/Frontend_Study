@@ -8,13 +8,19 @@ function PriceInput() {
 		let regexp = /\B(?=(\d{3})+(?!\d))/g
 		return price.toString().replace(regexp, ',')
 	}
-
+	let resultPrice = 0
 	// onChange 여기서 console.log 정확한 값 나온다. 하지만 이거 state관리해서 inputValue에 넣으면 이상함
 	const onPriceInput = e => {
 		const { value } = e.target
-		let resultPrice = addComma(value)
-		console.log(resultPrice)
+		setPrice(addComma(value))
 	}
-	return <input placeholder="가격을 입력하세요 :)" onChange={onPriceInput} />
+	console.log(price)
+	return (
+		<input
+			placeholder="가격을 입력하세요 :)"
+			onChange={onPriceInput}
+			defaultValue={price}
+		/>
+	)
 }
 export default PriceInput

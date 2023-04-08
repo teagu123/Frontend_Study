@@ -13,6 +13,7 @@ function App() {
 
 			<h1>해쉬태그</h1>
 			<HashTag />
+			{/* hashTag */}
 		</>
 	)
 }

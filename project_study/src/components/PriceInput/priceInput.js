@@ -15,6 +15,7 @@ function PriceInput() {
 		setPrice(addComma(value))
 	}
 	console.log(price)
+	//console.log 는 오류 없음
 	return (
 		<input
 			placeholder="가격을 입력하세요 :)"

@@ -1,20 +1,13 @@
-import PriceInput from './components/\bPriceInput/priceInput'
-import SearchGPS from './components/GPS/gps'
-import HashTag from './components/HashTag/hashTag'
+import { RouterProvider } from 'react-router-dom'
+import Buttons from './buttons/buttons'
+import router from './Routes/routing'
 
 function App() {
 	return (
 		<>
-			<h1>주소 검색</h1>
-			<SearchGPS />
-
-			<h1>가격 3자리 마다 , 찍기</h1>
-			<PriceInput />
-
-			<h1>해쉬태그</h1>
-			<HashTag />
-
-			<h1></h1>
+			<RouterProvider router={router}>
+				<Buttons />
+			</RouterProvider>
 		</>
 	)
 }

@@ -70,6 +70,13 @@ function Buttons() {
 						</Button2>
 					</>
 				)}
+				<Button1
+					onClick={() => {
+						navigate('/Carousel')
+					}}
+				>
+					Carousel로 고고~
+				</Button1>
 			</Wrap>
 			<Outlet />
 		</>

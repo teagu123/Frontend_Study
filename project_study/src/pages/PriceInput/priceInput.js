@@ -17,11 +17,14 @@ function PriceInput() {
 	console.log(price)
 	//console.log 는 오류 없음
 	return (
-		<input
-			placeholder="가격을 입력하세요 :)"
-			onChange={onPriceInput}
-			defaultValue={price}
-		/>
+		<>
+			<h1>위치검색</h1>
+			<input
+				placeholder="가격을 입력하세요 :)"
+				onChange={onPriceInput}
+				defaultValue={price}
+			/>
+		</>
 	)
 }
 export default PriceInput

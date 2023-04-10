@@ -34,7 +34,7 @@ function Buttons() {
 
 	useEffect(() => {
 		if (list === 'GPS') return setViewGps(true)
-		if (list === 'HashTag' || 'PriceInput') return setViewHash(true)
+		if (list === 'HashTag' || list === 'PriceInput') return setViewHash(true)
 	}, [])
 	return (
 		<>

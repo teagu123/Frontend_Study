@@ -13,6 +13,9 @@ function SearchGPS() {
 		
 		- 그래서 Cannot read properties of undefined (reading 'postcode') 에러 뜸
 			- 해결방법 : index.js에서 </React.StrictMode> 삭제했음
+
+		일단 위도 경도를 return값으로 줄수있는지 찾을 예정
+	
     */
 
 	const [viewGPS, setViewGPS] = useState(false)
@@ -32,6 +35,7 @@ function SearchGPS() {
 	}
 	return (
 		<>
+			<h1>위치검색</h1>
 			<button
 				onClick={() => {
 					setViewGPS(!viewGPS)

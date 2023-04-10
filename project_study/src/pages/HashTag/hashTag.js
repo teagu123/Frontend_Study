@@ -24,6 +24,7 @@ function HashTag() {
 	}
 	return (
 		<>
+			<h1>해시태그</h1>
 			<HashInput
 				placeholder="HashTag를 입력하세요"
 				type="text"

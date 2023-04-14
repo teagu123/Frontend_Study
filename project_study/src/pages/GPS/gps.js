@@ -15,13 +15,16 @@ function SearchGPS() {
 			- 해결방법 : index.js에서 </React.StrictMode> 삭제했음
 
 		일단 위도 경도를 return값으로 줄수있는지 찾을 예정
-	
     */
 
 	const [viewGPS, setViewGPS] = useState(false)
 
+	//일단 지번으로 가져오고,
 	const gpsSelect = data => {
-		console.log(data.address)
+		console.log(data.jibunAddress)
+		let resultAddress = data.jibunAddress.split('동')
+		// resultAddress[0]은 동까지만 나오도록 했다.
+		console.log(resultAddress[0] + '동')
 	}
 
 	const postCodeStyle = {
@@ -33,6 +36,7 @@ function SearchGPS() {
 		padding: '7px',
 		zIndex: 100,
 	}
+
 	return (
 		<>
 			<h1>위치검색</h1>

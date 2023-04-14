@@ -40,6 +40,9 @@ function Carousel() {
 				<SwiperSlide>
 					<Img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3wyQhdjED1S_kPb7NMQzHzrwDRz_BK6KN1w&usqp=CAU" />
 				</SwiperSlide>
+				<SwiperSlide>
+					<Img src="https://xn--oi2bn3sl1dnoc.com/data/editor/2209/thumb-20220906152921_dd0b314a42c4f94712b9313a8dbd0869_mjwm_300x300.jpg" />
+				</SwiperSlide>
 			</Swiper>
 		</>
 	)

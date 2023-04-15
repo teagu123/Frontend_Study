@@ -77,6 +77,12 @@ function Buttons() {
 				>
 					Carousel로 고고~
 				</Button1>
+				<Div1>1.4rem</Div1>
+				<Div2>1.8rem</Div2>
+				<Div3>2.0rem</Div3>
+				<Div4>2.4rem</Div4>
+				<Div5>3.2rem</Div5>
+				<Div6>4.8rem</Div6>
 			</Wrap>
 			<Outlet />
 		</>
@@ -93,4 +99,22 @@ const Button1 = styled.button`
 `
 const Button2 = styled.button`
 	background-color: green;
+`
+const Div1 = styled.div`
+	font-size: 1.4rem;
+`
+const Div2 = styled.div`
+	font-size: 1.8rem;
+`
+const Div3 = styled.div`
+	font-size: 2rem;
+`
+const Div4 = styled.div`
+	font-size: 2.4rem;
+`
+const Div5 = styled.div`
+	font-size: 3.2rem;
+`
+const Div6 = styled.div`
+	font-size: 4.8rem;
 `

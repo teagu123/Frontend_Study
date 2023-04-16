@@ -77,12 +77,6 @@ function Buttons() {
 				>
 					Carousel로 고고~
 				</Button1>
-				<Div1>1.4rem</Div1>
-				<Div2>1.8rem</Div2>
-				<Div3>2.0rem</Div3>
-				<Div4>2.4rem</Div4>
-				<Div5>3.2rem</Div5>
-				<Div6>4.8rem</Div6>
 			</Wrap>
 			<Outlet />
 		</>

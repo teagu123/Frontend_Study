@@ -3,20 +3,23 @@ import { EtcOption_Icon } from '../../../../../Components/Icons/Icons'
 import { FlexBetweenCSS } from '../../../../../Styles/common'
 import Button from '../../../../../Components/Button/Button'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 // import ProductApi from '../../../../../Apis/productApi'
 
 function MyPrdItemBox({ item }) {
+	const navigate = useNavigate()
 	const [editOption, setEditOption] = useState(false)
 
 	const { image_url, title, price, status, idx } = item
 
 	//물품 삭제
-	// const onProductDel = async () => {
-	// 	try {
-	// 		await ProductApi.delete(idx)
-	// 	} catch (err) {}
-	// }
+	const onProductDel = async () => {
+		// try {
+		// 	await ProductApi.delete(idx)
+		// } catch (err) {}
+		console.log('삭제')
+	}
 
 	//물품 수정
 
@@ -35,7 +38,7 @@ function MyPrdItemBox({ item }) {
 						/>
 						{editOption && (
 							<S.EditBox>
-								<div>수정</div>
+								<div onClick={() => navigate(`register/${item}`)}>수정</div>
 								<div onClick={onProductDel}>삭제</div>
 							</S.EditBox>
 						)}
@@ -124,7 +127,12 @@ const SoldOut = styled.h2`
 	top: 40%;
 	z-index: 100;
 	left: 5%;
+	@media screen and (max-width: ${({ theme }) => theme.MEDIA.mobile}) {
+		top: 25%;
+		left: 25%;
+	}
 `
+
 const IconContainer = styled.div`
 	cursor: pointer;
 	position: relative;
@@ -141,6 +149,9 @@ const EditBox = styled.div`
 	& > div:first-child {
 		border-bottom: 2px solid ${({ theme }) => theme.COLOR.common.gray[200]};
 	}
+	position: absolute;
+	bottom: 4rem;
+	z-index: 100;
 	width: 6rem;
 	right: 1rem;
 	text-align: center;

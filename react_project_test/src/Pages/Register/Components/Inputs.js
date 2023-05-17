@@ -271,6 +271,10 @@ const OpenMadalBtn = styled.input`
 const CategortContainer = styled.div`
 	display: flex;
 	align-items: center;
+	@media screen and (max-width: ${({ theme }) => theme.MEDIA.mobile}) {
+		display: flex;
+		flex-direction: column;
+	}
 `
 const StyledAlertText = styled(AlertText)`
 	margin-top: 0.3rem;

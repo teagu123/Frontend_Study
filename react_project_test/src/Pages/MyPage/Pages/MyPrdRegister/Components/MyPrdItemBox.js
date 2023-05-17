@@ -23,6 +23,14 @@ function MyPrdItemBox({ item }) {
 
 	//물품 수정
 
+	/*
+	1. 수정 및 삭제 뜨는 state가 onBlur일때는 false로 할수있는 로직
+	
+	채팅에 관한거
+	판매중을 눌렀을때 채팅하는 사람들의 목록이 떠야함
+	채팅 버튼은 채팅이 왔으면 표시를 해줄 예정
+	*/
+
 	return (
 		<S.Wrapper>
 			<S.IMGContainer posterIMG={image_url} status={status}>

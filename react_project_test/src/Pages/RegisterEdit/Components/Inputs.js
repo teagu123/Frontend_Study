@@ -14,7 +14,7 @@ import PriceItem from './InputComponents/PriceItem'
 import TagsItem from './InputComponents/TagsItem'
 import RegionModal from '../../../Components/Modal/RegionModal/RegionModal'
 import AlertText from '../../../Components/AlertText/AlertText'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Modal from '../../../Components/Modal/Modal'
 
 function Inputs({ imageList }) {
@@ -26,6 +26,7 @@ function Inputs({ imageList }) {
 		setValue,
 		clearErrors,
 	} = useForm()
+	const params = useParams()
 
 	const navigate = useNavigate()
 
@@ -210,12 +211,12 @@ function Inputs({ imageList }) {
 			<ViewMap LatAndLng={LatAndLng} />
 			{isSubmitModal && (
 				<Modal size={'medium'}>
-					<S.ModalText>물품 등록 성공~!</S.ModalText>
+					<S.ModalText>물품 수정 성공~!</S.ModalText>
 				</Modal>
 			)}
 			<S.ButtonWrap>
 				<Button type="submit" style={{ margin: '4rem' }}>
-					등록 완료
+					수정 완료
 				</Button>
 				<Button style={{ margin: '4rem' }}>취소</Button>
 			</S.ButtonWrap>

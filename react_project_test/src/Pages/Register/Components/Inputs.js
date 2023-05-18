@@ -14,7 +14,7 @@ import PriceItem from './InputComponents/PriceItem'
 import TagsItem from './InputComponents/TagsItem'
 import RegionModal from '../../../Components/Modal/RegionModal/RegionModal'
 import AlertText from '../../../Components/AlertText/AlertText'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Modal from '../../../Components/Modal/Modal'
 
 function Inputs({ imageList }) {
@@ -26,17 +26,18 @@ function Inputs({ imageList }) {
 		setValue,
 		clearErrors,
 	} = useForm()
+	const params = useParams()
 
 	const navigate = useNavigate()
 
 	const watchedCategory = watch('category')
 
 	const [isOpenModal, setIsOpenModal] = useRecoilState(isOpenModalAtom)
+	const [modalType, setModalType] = useState('')
 	const [isSubmitModal, setIsSubmitModal] = useState(false)
 
 	const [hashValue, setHashValue] = useState('')
 	const [hashArr, setHashArr] = useState([])
-	const [modalType, setModalType] = useState('')
 	const [intPrice, setIntPrice] = useState(0)
 
 	//동까지만 나오는 state
@@ -88,7 +89,7 @@ function Inputs({ imageList }) {
 			price = Number(intPrice.replace(/,/g, ''))
 		}
 
-		setIsSubmitModal(true)
+		setModalType('isSuccess')
 
 		const formData = new FormData()
 		formData.append('title', data.title)
@@ -100,11 +101,8 @@ function Inputs({ imageList }) {
 		formData.append('images', imageList)
 
 		try {
-			setTimeout(() => {
-				setIsSubmitModal(false)
-				navigate('/')
-			}, 2000)
 			console.log(response.data)
+			setIsOpenModal(true)
 		} catch (err) {}
 	}
 	return (
@@ -208,14 +206,15 @@ function Inputs({ imageList }) {
 				<RegionModal setResultAddress={setRegion} setLatAndLng={setLatAndLng} />
 			)}
 			<ViewMap LatAndLng={LatAndLng} />
-			{isSubmitModal && (
+
+			{isOpenModal && modalType === 'isSuccess' && (
 				<Modal size={'medium'}>
 					<S.ModalText>물품 등록 성공~!</S.ModalText>
 				</Modal>
 			)}
 			<S.ButtonWrap>
 				<Button type="submit" style={{ margin: '4rem' }}>
-					등록 완료
+					수정 완료
 				</Button>
 				<Button style={{ margin: '4rem' }}>취소</Button>
 			</S.ButtonWrap>

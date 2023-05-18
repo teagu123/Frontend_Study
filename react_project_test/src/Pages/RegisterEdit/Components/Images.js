@@ -6,6 +6,10 @@ import { Camera_Icon, ModalClose_icon } from '../../../Components/Icons/Icons'
 import AlertText from '../../../Components/AlertText/AlertText'
 import { useState } from 'react'
 
+/*
+1. 이미지 등록 (백엔드에 등록할때 다른 방법을 이용해야할것으로 보임)
+
+*/
 function Images({ imageList, setImageList }) {
 	const [imgNum, setImgNum] = useState(false)
 	const pictureInput = useRef()

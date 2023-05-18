@@ -33,11 +33,11 @@ function Inputs({ imageList }) {
 	const watchedCategory = watch('category')
 
 	const [isOpenModal, setIsOpenModal] = useRecoilState(isOpenModalAtom)
+	const [modalType, setModalType] = useState('')
 	const [isSubmitModal, setIsSubmitModal] = useState(false)
 
 	const [hashValue, setHashValue] = useState('')
 	const [hashArr, setHashArr] = useState([])
-	const [modalType, setModalType] = useState('')
 	const [intPrice, setIntPrice] = useState(0)
 
 	//동까지만 나오는 state
@@ -89,7 +89,7 @@ function Inputs({ imageList }) {
 			price = Number(intPrice.replace(/,/g, ''))
 		}
 
-		setIsSubmitModal(true)
+		setModalType('isSuccess')
 
 		const formData = new FormData()
 		formData.append('title', data.title)
@@ -101,11 +101,8 @@ function Inputs({ imageList }) {
 		formData.append('images', imageList)
 
 		try {
-			setTimeout(() => {
-				setIsSubmitModal(false)
-				navigate('/')
-			}, 2000)
 			console.log(response.data)
+			setIsOpenModal(true)
 		} catch (err) {}
 	}
 	return (
@@ -209,7 +206,8 @@ function Inputs({ imageList }) {
 				<RegionModal setResultAddress={setRegion} setLatAndLng={setLatAndLng} />
 			)}
 			<ViewMap LatAndLng={LatAndLng} />
-			{isSubmitModal && (
+
+			{isOpenModal && modalType === 'isSuccess' && (
 				<Modal size={'medium'}>
 					<S.ModalText>물품 수정 성공~!</S.ModalText>
 				</Modal>

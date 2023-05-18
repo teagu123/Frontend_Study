@@ -80,6 +80,7 @@ function MyPrdRegister() {
 
 	const [category, setCategory] = useState(0)
 
+	//등록상품 리스트 들고오기
 	useEffect(() => {
 		const myPrdApi = async () => {
 			try {
@@ -93,6 +94,7 @@ function MyPrdRegister() {
 		myPrdApi()
 	}, [category])
 	console.log(category)
+
 	return (
 		<S.Wrapper>
 			<S.TotalNumAndFilter>

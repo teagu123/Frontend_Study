@@ -59,10 +59,14 @@ ex)
 해당 컴포넌트에서 useQueryClient 를 가져와야함
 import {useQueryClient} from '@tanstack/react-query
 const client = useQueryClient();
+
+
 <button onClick={()=>{
     client.invalidateQueries(['products'])
 }}>
     정보 업데이트 버튼
 </button>
 저 버튼을 누르면 products 키의 캐시를 새로고침 할수 있다.
+
+
 

@@ -16,7 +16,6 @@ import UserInfo from '../Pages/MyPage/UserEdit/Pages/UserInfo/UserInfo'
 import MyPageNav from '../Pages/MyPage/Components/Header/Components/Navigation'
 // import PrivateRoute from './private'
 import Error404 from '../Components/Error/404'
-import RegisterEdit from '../Pages/RegisterEdit'
 
 const router = createBrowserRouter([
 	{
@@ -53,7 +52,9 @@ const router = createBrowserRouter([
 
 					{
 						path: '',
+						// element: <MyPageIndex />,
 						element: <MyPrdRegister />,
+
 						children: [
 							{
 								path: '/mypage-bank',
@@ -92,8 +93,8 @@ const router = createBrowserRouter([
 						element: <Register />,
 					},
 					{
-						path: '/register/:prdname',
-						element: <RegisterEdit />,
+						path: '/register/:prod_idx',
+						element: <Register />,
 					},
 					{
 						path: '/search/:word',

@@ -7,14 +7,13 @@ import { useRecoilState } from 'recoil'
 import { isOpenModalAtom } from '../../../Atoms/modal.atom'
 import { FORM_TYPE } from '../../../Consts/form.type'
 import ViewMap from './ViewMap'
-// import ProductApi from '../../../Apis/productApi'
+import ProductApi from '../../../Apis/productApi'
 import FormItem from './InputComponents/FormItem'
 import CategoryItem from './InputComponents/CategoryItem'
 import PriceItem from './InputComponents/PriceItem'
 import TagsItem from './InputComponents/TagsItem'
 import RegionModal from '../../../Components/Modal/RegionModal/RegionModal'
 import AlertText from '../../../Components/AlertText/AlertText'
-import { useNavigate, useParams } from 'react-router-dom'
 import Modal from '../../../Components/Modal/Modal'
 
 function Inputs({ imageList }) {
@@ -26,15 +25,11 @@ function Inputs({ imageList }) {
 		setValue,
 		clearErrors,
 	} = useForm()
-	const params = useParams()
-
-	const navigate = useNavigate()
 
 	const watchedCategory = watch('category')
 
 	const [isOpenModal, setIsOpenModal] = useRecoilState(isOpenModalAtom)
 	const [modalType, setModalType] = useState('')
-	const [isSubmitModal, setIsSubmitModal] = useState(false)
 
 	const [hashValue, setHashValue] = useState('')
 	const [hashArr, setHashArr] = useState([])
@@ -98,10 +93,14 @@ function Inputs({ imageList }) {
 		formData.append('region', resultAddress)
 		formData.append('category', Number(data.category))
 		formData.append('tag', hashArr)
-		formData.append('images', imageList)
+		for (let i = 0; i < imageList.length; i++) {
+			formData.append('images', imageList[i])
+		}
+		// formData.append('images', imageList)
 
 		try {
-			console.log(response.data)
+			const response = await ProductApi.register(formData)
+			console.log(response)
 			setIsOpenModal(true)
 		} catch (err) {}
 	}

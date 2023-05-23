@@ -4,7 +4,6 @@ import { FlexBetweenCSS } from '../../../../../Styles/common'
 import Button from '../../../../../Components/Button/Button'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import ProductApi from '../../../../../Apis/productApi'
 import { isOpenModalAtom } from '../../../../../Atoms/modal.atom'
 import { useRecoilState } from 'recoil'
 import Modal from '../../../../../Components/Modal/Modal'
@@ -16,12 +15,12 @@ function MyPrdItemBox({ item }) {
 	const { img_url, title, price, status, idx } = item
 
 	//물품 삭제
-	const onProductDel = async () => {
-		try {
-			const res = await ProductApi.delete(idx)
-			setIsOpenModal(true)
-		} catch (err) {}
-	}
+	// const onProductDel = () => {}
+	// const onProductDel = async () => {
+	// 	try {
+	// 		const res = await ProductApi.delete(idx)
+	// 		setIsOpenModal(true)
+	// 	} catch (err) {}
 
 	return (
 		<S.Wrapper>

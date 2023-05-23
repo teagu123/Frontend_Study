@@ -10,7 +10,6 @@ import TypeSelectBox from './Components/TypeSelectBox'
 // import QUERY_KEY from '../../../../Consts/query.key'
 import Pagination from '../../../../Components/Pagination/Pagination'
 import useGetMyPagePrdRegisterData from '../../../../Hooks/Queries/get-myPagePrdRegister'
-import { useMutation } from '@tanstack/react-query'
 
 function MyPrdRegister() {
 	const [registerData, setRegisterData] = useState()
@@ -18,22 +17,8 @@ function MyPrdRegister() {
 	const [category, setCategory] = useState(0)
 
 	const { data, isLoading, error } = useGetMyPagePrdRegisterData(category)
-	console.log(data)
 
-	const deletProductData = async idx => {
-		const res = await ProductApi.delete(idx)
-		return res.data
-	}
-
-	const useDeletProductData =  => {
-		const { data, error, status, isLoading, isError } = useMutation(() =>
-			deletProductData(),
-		)
-		return { data, error, status, isLoading, isError }
-	}
-
-	const { isLoading } = useDeletProductData()
-
+	console.log(category, '무료면 1임')
 	return (
 		<>
 			{isLoading ? (
@@ -48,7 +33,9 @@ function MyPrdRegister() {
 
 						<S.PrdList>
 							{data?.products.map((item, idx) => {
-								return <MyPrdItemBox key={idx} item={item} />
+								return (
+									<MyPrdItemBox key={idx} item={item} category={category} />
+								)
 							})}
 						</S.PrdList>
 					</S.Wrapper>

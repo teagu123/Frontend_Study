@@ -25,8 +25,6 @@ function MyPrdRegister() {
 
 	const { data, isLoading, error } = useGetMyPagePrdRegisterData(category)
 
-	console.log(category, '무료면 1임')
-
 	const queryClient = useQueryClient()
 
 	const { mutate } = useMutation(idx => ProductApi.delete(idx), {
@@ -43,6 +41,8 @@ function MyPrdRegister() {
 	const onProductDeleteCheck = () => {
 		mutate(ProductIdx)
 	}
+
+	console.log(category)
 	return (
 		<>
 			{isLoading ? (
@@ -52,7 +52,7 @@ function MyPrdRegister() {
 					<S.Wrapper>
 						<S.TotalNumAndFilter>
 							<div>전체 {data.products.length}개</div>
-							<TypeSelectBox setCategory={setCategory} />
+							<TypeSelectBox setCategory={setCategory} category={category} />
 						</S.TotalNumAndFilter>
 
 						{isOpenModal && (

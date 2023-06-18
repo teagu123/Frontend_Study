@@ -7,7 +7,7 @@ function ReactRouterDom() {
 	const [url, setUrl] = useState('')
 
 	const navigate = url => {
-		window.history.pushState('', null, `${url}`)
+		window.history.pushState(`${url}`, null, `${url}`)
 		setUrl(url)
 	}
 
@@ -15,10 +15,39 @@ function ReactRouterDom() {
 		const handleLocationChange = () => {
 			setUrl(window.location.pathname)
 		}
-
 		handleLocationChange()
 
 		window.addEventListener('popstate', handleLocationChange)
+	}, [])
+
+	const preventGoBack = () => {
+		window.history.pushState(window.location.href, '', window.location.href) //현재 주소 넣고
+		window.history.pushState(window.history.go(-1), '', window.history.go(-1)) //현재 주소 넣고
+		window.confirm('뒤로갈래요?~? 정말??')
+			? window.history.pushState(null, '', window.location.href)
+			: window.history.window.history.go(-1)
+	}
+
+	useEffect(() => {
+		window.history.pushState(null, '', window.location.href)
+		window.addEventListener('popstate', preventGoBack)
+		console.log(window.history.go(-1))
+		return () => {
+			window.removeEventListener('popstate', preventGoBack)
+		}
+	}, [])
+
+	const preventClose = e => {
+		e.preventDefault()
+		e.returnValue = ''
+	}
+
+	useEffect(() => {
+		window.addEventListener('beforeunload', preventClose)
+
+		return () => {
+			window.removeEventListener('beforeunload', preventClose)
+		}
 	}, [])
 
 	return (

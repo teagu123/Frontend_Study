@@ -9,6 +9,7 @@ function TicketOffice() {
 	const onPayMoney = e => {
 		setPayMoney(e)
 	}
+
 	return (
 		<>
 			<h3>매표소 입니다.</h3>

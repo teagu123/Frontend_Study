@@ -14,9 +14,10 @@ export default {
 	},
 }
 
-const Template = args => <Input {...args} />
+// const Template = args => <Input {...args} />
 
-export const Default = Template.bind({})
-Default.args = {
-	status: 'default',
+export const Default = {
+	args: {
+		status: 'default',
+	},
 }

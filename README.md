@@ -5,3 +5,5 @@
 - Lifting State Up⬆
 
 - Storybook📕
+
+- jwt토큰, Cookie_samesite, Secure 🔓

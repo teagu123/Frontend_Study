@@ -1,0 +1,25 @@
+이번 프로젝트를 진행하면서 토큰 재요청에 대해 많이 어려움을 느꼈다. 
+백엔드와의 소통도 많이 필요한 부분이여서 많은 회의를 통해서 서로의 코드를 고치면서 진행을한 부분이기 때문에 글을 작성하여 남기면 좋겠다라는 생각을 했다.
+
+jwt토큰이란?
+jwt 토큰에 대해서 알아야할 필요가 있다.
+
+여기서 accessToken과 refreshToken이 존재한다.
+우리는 보안을 위해서 accessToken의 만료시간을 짧게 하고, refreshToken도 발급하여 만약 accessToken이 탈취된다고 하더라도
+만료시간이 짧기 때문에 안전하게 인증이 가능하다는 점이 있다.
+
+그래서 우리는 accessToken을 예를 들어 한시간으로 잡았다고 하자
+사용자가 우리의 사이트를 사용할때 한시간마다 accessToken이 만료한다고 로그아웃을 시키는것은 불편함을 준다.
+그래서 사용하는것이 refreshToken을 사용하여 accessToken을 재발급하는것이다.
+
+interceptor를 사용
+우리는 axios를 통신하는데 http통신 라이브러리에는 interceptor가 존재한다.
+interceptor은 api요청에서 then이나 catch로 처리되기 전에 응답을 가로챌 수 있도록 하는것이다.
+
+일단 우리는 토큰 만료는 401에러로 진행하였음 accessTotken 해당시간이 지나면 401에러를 준다.
+- api를 보낼때 가로채는거 -----> axios.interceptors.request 
+- api응답을 받을때 가로채는거 -> axios.interceptor.response
+
+그리고 응답이 올때 사용하는것이므로 use를 추가로 작성해 활용한다. 
+
+

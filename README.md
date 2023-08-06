@@ -7,3 +7,5 @@
 - Storybook📕
 
 - jwt토큰, Cookie_samesite, Secure 🔓
+
+- 동기, 비동기 🔀

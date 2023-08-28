@@ -9,3 +9,7 @@
 - jwt토큰, Cookie_samesite, Secure 🔓
 
 - 동기, 비동기 🔀
+
+- 컴포넌트 추상화 (WET, DRY)
+
+- TestCode

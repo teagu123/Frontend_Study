@@ -13,3 +13,7 @@
 - 컴포넌트 추상화 (WET, DRY)
 
 - TestCode
+
+- JS_Deep_Dive <책>
+
+- Effective_TypeScript <책>

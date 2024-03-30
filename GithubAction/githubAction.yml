@@ -6,11 +6,7 @@ name: gitActionStudy
 # workflow를 동작하게하는 trigger
 # repo에 push 이벤트가 발생할때마다 실행된다.
 # 즉, push말고 다른 이벤트도 존재한다.
-on:
-  push:
-    branches: ['stag'] #브랜치가 stag일때 더 추가하고싶으면
-    #   branches: [ "stag", "main" ] 이런식으로 가능하다
-  workflow_dispatch:
+on: push
 
 # job은 사용자가 정한 플랫폼을 통해 step이라는 일련의 과정을 실행할 수 있다.
 # 여러 개의 job를 사용할 수 있으며, 여러개의 job를 사용할 때는 서로 정보도 교활 할 수있다.
@@ -43,30 +39,3 @@ jobs:
       # npm run build를 실행한다
       - name: Build
         run: npm run build
-
-      - name: Docker login
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_EMAIL }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/amd64
-          push: true
-          tags: ${{ secrets.DOCKER_CLIENT_STAG_IMAGE }}
-
-      - name: client-deploy
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            sudo docker rm -f ${{ secrets.DOCKER_CLIENT_STAG_CONTAINER }}
-            sudo docker rmi ${{ secrets.DOCKER_CLIENT_STAG_IMAGE }}
-            sudo docker-compose -f ${{ secrets.DOCKER_COMPOSE_DIRECTORY }} up -d
-            sudo docker image prune -f

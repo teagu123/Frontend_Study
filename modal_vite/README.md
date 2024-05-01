@@ -44,3 +44,7 @@ Vite는 로컬에서 개발을 할 때 번들링을 하지 않고 ESM 방식을 
 그래서 Vite를 보면 index.html 이게 소스에있다. 즉, 추가적인 번들링 없이 파일을 진입하기 위해서 넣은것이다.
 
 ![](https://velog.velcdn.com/images/taegi/post/a2680b61-5324-4759-8ee1-b9fce7ab01ff/image.png)
+
+그리고 vite는 HMR(Hot Module Replacement)은 앱을 종료하지 않고 갱신된 파일만을 교체하는 방식입니다. 어떤 모듈이 수정되면 Vite는 수정된 모듈만 교체할뿐 브라우저에서 해당 모듈을 요청하면 교체된 모듈을 전달하는것이다!
+
+엄청난 차이를 보여주는 vite로 프로젝트를 진행할 예정이다.

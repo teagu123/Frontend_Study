@@ -17,3 +17,5 @@
 - JS_Deep_Dive <책>
 
 - Effective_TypeScript <책>
+
+- react-hook-form + zod로 회원가입 구현

@@ -19,3 +19,5 @@
 - Effective_TypeScript <책>
 
 - react-hook-form + zod로 회원가입 구현
+
+- github Action

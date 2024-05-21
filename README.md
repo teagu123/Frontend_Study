@@ -36,6 +36,7 @@
 - MSW
 - React Hook Form
 - Zod
-- Styled Components
 - Redux
-- Taild
+- React-csv
+- Styled Components
+- Tailwind

@@ -2,7 +2,7 @@ import { styled } from 'styled-components'
 import { CSVLink } from 'react-csv'
 import { IlistData } from './list'
 
-function CsvDownLoad(data: IlistData[]) {
+function CsvDownLoad({ listData }: { listData: IlistData[] }) {
 	let headers = [
 		{ label: '나이', key: 'age' },
 		{ label: '이름', key: 'name' },
@@ -10,8 +10,8 @@ function CsvDownLoad(data: IlistData[]) {
 	]
 
 	return (
-		<CSVLink data={data} filename="userList.csv" headers={headers}>
-			엑셀 다운로드
+		<CSVLink data={listData} filename="userList.csv" headers={headers}>
+			<Button>엑셀 다운로드</Button>
 		</CSVLink>
 	)
 }

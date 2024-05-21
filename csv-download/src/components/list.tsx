@@ -1,5 +1,6 @@
 import { styled } from 'styled-components'
 import CsvDownLoad from './csvDownLoadBtn'
+import { useState } from 'react'
 
 export interface IlistData {
 	age: number
@@ -8,7 +9,7 @@ export interface IlistData {
 }
 
 function List() {
-	let listData: IlistData[] = [
+	const [listData, setListData] = useState<IlistData[]>([
 		{
 			age: 13,
 			name: '홍길동',
@@ -39,7 +40,34 @@ function List() {
 			name: '그리즈만',
 			email: '그리즈만@naver.com',
 		},
-	]
+	])
+
+	const [value, setValue] = useState({
+		age: 0,
+		name: '',
+		email: '',
+	})
+
+	const handleInput = (subject: string, value: number | string) => {
+		if (subject === 'age' && typeof value === 'number')
+			setValue(prev => ({ ...prev, age: value }))
+		if (typeof value === 'string') {
+			if (subject === 'name') setValue(prev => ({ ...prev, name: value }))
+			if (subject === 'email') setValue(prev => ({ ...prev, email: value }))
+		}
+	}
+
+	const handleSubmit = () => {
+		if (
+			value.age !== 0 &&
+			value.name.length !== 0 &&
+			value.email.length !== 0
+		) {
+			setListData(prev => [...prev, value])
+		} else {
+			alert('입력을 해주셔야죠~~')
+		}
+	}
 
 	return (
 		<Wrapper>
@@ -55,7 +83,31 @@ function List() {
 					<div>{el.email}</div>
 				</Container>
 			))}
-			<CsvDownLoad data={listData} />
+			<ContainerGray>
+				<Input
+					type="text"
+					placeholder="이름"
+					onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+						handleInput('name', e.target.value)
+					}
+				/>
+				<Input
+					type="number"
+					placeholder="나이"
+					onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+						handleInput('age', e.target.value)
+					}
+				/>
+				<Input
+					type="text"
+					placeholder="이메일"
+					onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+						handleInput('email', e.target.value)
+					}
+				/>
+				<button onClick={handleSubmit}>등록</button>
+			</ContainerGray>
+			<CsvDownLoad listData={listData} />
 		</Wrapper>
 	)
 }
@@ -86,4 +138,8 @@ const Container = styled.div`
 		width: 100%;
 	}
 	border: 1px solid black;
+`
+const Input = styled.input`
+	width: 100%;
+	padding: 5px;
 `

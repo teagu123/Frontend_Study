@@ -33,12 +33,14 @@
 - React Query
 - React Router
 - Recoil
+- Zustand
+- Redux
+- Context API
 - Axios
 - Storybook
 - MSW
 - React Hook Form
 - Zod
-- Redux
 - React-csv
 - Styled Components
 - Tailwind

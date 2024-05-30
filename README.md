@@ -24,6 +24,8 @@
 
 - React 공식문서 Study 정리
 
+- ES module, Common JS <...ing>
+
 - JS_Deep_Dive <책>
 
 - Effective_TypeScript <책>

@@ -11,6 +11,7 @@ function App() {
 		formState: { errors },
 		handleSubmit,
 	} = useForm({
+		mode: 'onChange',
 		resolver: zodResolver(schema),
 		defaultValues: {
 			id: '',

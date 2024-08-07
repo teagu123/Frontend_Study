@@ -1,0 +1,7 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.appWrapper {
+	height: 100vh;
+}

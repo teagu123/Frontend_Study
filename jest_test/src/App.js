@@ -1,5 +1,7 @@
+import { SlideMotion } from 'react-animate-magic'
+
 function App() {
-	return <></>
+	return <>{/* <SlideMotion /> */}dd</>
 }
 
 export default App

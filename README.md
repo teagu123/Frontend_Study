@@ -24,6 +24,8 @@
 
 - React 공식문서 Study 정리
 
+- 성능 최적화 <LightHouse>
+
 - ES module, Common JS <...ing>
 
 - JS_Deep_Dive <책>
